@@ -2,6 +2,7 @@
   "name": "real_time_chat",
   "version": "1.0.0",
   "main": "index.js",
+  "type":"module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -16,5 +17,8 @@
     "url": "https://github.com/SteveHd3z/real_time_chat/issues"
   },
   "homepage": "https://github.com/SteveHd3z/real_time_chat#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "express": "5.1.0"
+  }
 }
