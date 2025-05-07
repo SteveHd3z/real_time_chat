@@ -2,8 +2,9 @@
   "name": "real_time_chat",
   "version": "1.0.0",
   "main": "index.js",
-  "type":"module",
+  "type": "module",
   "scripts": {
+    "dev": "node --watch ./server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,6 +20,8 @@
   "homepage": "https://github.com/SteveHd3z/real_time_chat#readme",
   "description": "",
   "dependencies": {
-    "express": "5.1.0"
+    "express": "5.1.0",
+    "morgan": "1.10.0",
+    "socket.io": "4.8.1"
   }
 }
