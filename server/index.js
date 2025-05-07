@@ -7,13 +7,18 @@ import { createServer } from 'http';
 
 //Puerto que vamos a utilizar
 const port= process.env.PORT || 3000;
+
 //creamos la conexion tanto del servidor como de socket.io
 //creamos el servidor http y le pasamos la app de express
 const app = express();
 const server = createServer(app);
+
 //creamos el servidor de socket.io y le pasamos el servidor http
 //esto es necesario para que socket.io funcione con express
-const io= new Server(server)
+const io= new Server(server, {
+    connectionStateRecovery:{}
+})
+
 //Configuramos el socket.io para que escuche las conexiones
 //cuando un cliente se conecta, se ejecuta la funcion de callback
 io.on('connection', (socket) => {
