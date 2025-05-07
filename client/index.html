@@ -10,6 +10,12 @@
         const socket = io();
         const form = document.getElementById('form');
         const input = document.getElementById('input');
+        const messages = document.getElementById('messages');
+
+        socket.on('chat message', (msg) => {
+            const item = `<li>${msg}</li>`
+            messages.insertAdjacentHTML('beforeend', item);
+        });
 
         form.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -38,6 +44,20 @@
             padding: 36px 36px 100px 36px;
             grid-template-rows: 1fr;
             margin: 0;
+        }
+
+        #messages{
+            list-style-type: none;
+            margin: 10px;
+            padding: 10px;
+        }
+
+        #messages > li{
+            padding: .5rem 1rem;
+        }
+
+        #messages > li:nth-child(2n+1) {
+            background: #292828;
         }
 
         #chat{
@@ -87,10 +107,11 @@
     </style>
 </head>
 <body>
-    <section id="chat">
+    <section id="chat">        
         <header style="padding: 10px; text-align: center;">
             <h1>Real Time Chat</h1>
-        </header>        
+        </header> 
+        <ul id="messages"></ul>      
         <form id="form">
             <input type="text" name="message" id="input" placeholder="Type a message..." 
             autocomplete="off"/>
